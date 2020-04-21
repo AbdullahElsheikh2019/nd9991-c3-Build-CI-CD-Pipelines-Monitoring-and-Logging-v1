@@ -19,8 +19,7 @@ pipeline {
               steps { 
                  aquaMicroscanner imageName: 'alpine:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
               }
-         } 
-         }         
+         }          
          stage('Upload to AWS') {
               steps {
                   withAWS(region:'us-east-2',credentials:'aws-static') {
@@ -30,3 +29,4 @@ pipeline {
               }
          }
      }
+  }
